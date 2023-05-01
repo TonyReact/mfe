@@ -1,5 +1,4 @@
 const {merge} = require('webpack-merge'); // объединить
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ModuleFederationPlugin = require('webpack/lib/container/ModuleFederationPlugin'); // объявляю плагин
 const commonConfig = require('./webpack.common'); // файл, с которым будем объединять
 const packageJson = require('../package.json');
@@ -18,9 +17,6 @@ const devConfig = {
             shared: [
                 packageJson.dependencies, // делимся зависимостями, чтобы нетворк не грузил то, что также фигурирует в другом микрофронтенде
             ]
-        }),
-        new HtmlWebpackPlugin ({
-            template: './public/index.html' // где искать файл для работы изолировано
         }),
     ],
 };
