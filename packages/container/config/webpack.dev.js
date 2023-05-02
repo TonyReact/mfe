@@ -7,6 +7,9 @@ const devConfig = {
     mode: 'development',
     devServer: {
         port: 8080, // порт для разработки изолированно
+        historyApiFallback: {
+            index: 'index.html'
+        }
     },
     plugins: [
         new ModuleFederationPlugin ({
